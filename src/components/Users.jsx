@@ -1,14 +1,17 @@
 import React from "react";
 
-const Users = ({ user, deleteUserById }) => {
+const Users = ({ user, deleteUserById, setUpdateInfo }) => {
   const handleDeleteUser = () => {
     deleteUserById("/users", user.id);
+  };
+
+  const handleUpdate = () => {
+    setUpdateInfo(user);
   };
 
   return (
     <>
       <div>
-        {user.id}
         <ul>{user.first_name}</ul>
         <ul>{user.last}</ul>
         <ul>{user.email}</ul>
@@ -17,7 +20,7 @@ const Users = ({ user, deleteUserById }) => {
         <ul>{user.image_url}</ul>
       </div>
       <button onClick={handleDeleteUser}>❌</button>
-      <button>✅</button>
+      <button onClick={handleUpdate}>✅</button>
     </>
   );
 };

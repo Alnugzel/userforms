@@ -34,9 +34,8 @@ const useFetch = (baseUrl) => {
       .delete(url)
       .then((res) => {
         console.log(res.data);
-        const infoApiSome = (element) => element.id !== id;
-        infoApi.some(infoApiSome) && setInfoApi(infoApiSome);
-        getApi(path);
+        const infoApiFilter = infoApi.filter((element) => element.id !== id);
+        setInfoApi(infoApiFilter);
       })
       .catch((err) => console.log(err));
   };
@@ -61,14 +60,21 @@ const useFetch = (baseUrl) => {
       .put(url, data)
       .then((res) => {
         console.log(res.data);
-        const infoApiUpdated = infoApi.some((element) => {
-          if (id === element.id) {
+        const infoApiUpdate = infoApi.filter((user) => {
+          if (user.id === data.id) {
             return data;
           } else {
-            return element;
+            return user;
           }
         });
-        setInfoApi(infoApiUpdated);
+        /*const infoApiUpdated = infoApi.map((user) => {
+          if (user.id === data.id) {
+            return data;
+          } else {
+            return user;
+          }*/
+
+        setInfoApi(infoApiUpdate);
       })
       .catch((err) => console.log(err));
   };
