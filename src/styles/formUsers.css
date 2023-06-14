@@ -1,14 +1,31 @@
 form {
-  background-color: red;
+  max-width: 320px;
+  background-color: lightblue;
   padding: 1em;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 1em;
+  margin: auto;
+  border-radius: 1em;
 }
 
 form div {
   display: flex;
   flex-direction: column;
+  width: 90%;
+}
+
+form div input {
+  border: none;
+  outline: none;
+  padding: 0.5em 1em;
+  border-top-left-radius: 0.4em;
+  border-top-right-radius: 0.4em;
+  border-bottom: 3px red solid;
+}
+
+form div input:hover {
+  border-bottom: 3px green solid;
 }
