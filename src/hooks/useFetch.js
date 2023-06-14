@@ -40,18 +40,6 @@ const useFetch = (baseUrl) => {
       .catch((err) => console.log(err));
   };
 
-  // const deleteRegister = (path, id) => {
-  //   const url = `${baseUrl}${path}/${id}/`;
-  //   axios
-  //     .delete(url)
-  //     .then((res) => {
-  //       console.log(res.data);
-  //       const infoApiSome = infoApi.filter((element) => element.id !== id);
-  //       setInfoApi(infoApiSome);
-  //     })
-  //     .catch((err) => console.log(err));
-  // };
-
   //UPDATE
 
   const updateRegister = (path, id, data) => {
@@ -60,19 +48,10 @@ const useFetch = (baseUrl) => {
       .put(url, data)
       .then((res) => {
         console.log(res.data);
-        const infoApiUpdate = infoApi.filter((user) => {
-          if (user.id === data.id) {
-            return data;
-          } else {
-            return user;
-          }
+        const infoApiUpdate = infoApi.map((element) => {
+          if (element.id === id) return data;
+          return element;
         });
-        /*const infoApiUpdated = infoApi.map((user) => {
-          if (user.id === data.id) {
-            return data;
-          } else {
-            return user;
-          }*/
 
         setInfoApi(infoApiUpdate);
       })

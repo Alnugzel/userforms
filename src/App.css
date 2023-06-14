@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1em;
+}
+
+.header button {
+  border: none;
+  border-radius: 0.5em;
+  padding: 0.5em 1em;
+}
+
+.header button:hover {
+  background-color: aquamarine;
+}

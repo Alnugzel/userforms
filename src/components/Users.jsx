@@ -1,4 +1,5 @@
 import React from "react";
+import "../styles/users.css";
 
 const Users = ({ user, deleteUserById, setUpdateInfo }) => {
   const handleDeleteUser = () => {
@@ -10,18 +11,23 @@ const Users = ({ user, deleteUserById, setUpdateInfo }) => {
   };
 
   return (
-    <>
-      <div>
-        <ul>{user.first_name}</ul>
-        <ul>{user.last}</ul>
-        <ul>{user.email}</ul>
-        <ul>{user.password}</ul>
-        <ul>{user.birthday}</ul>
-        <ul>{user.image_url}</ul>
+    <article>
+      <h1>
+        {user.first_name} {user.last_name}
+      </h1>
+      <ul>
+        <li>
+          <span>Email:</span> <span>{user.email}</span>
+        </li>
+        <li>
+          <span>Birthday:</span> <span>{user.birthday}</span>
+        </li>
+      </ul>
+      <div className="">
+        <button onClick={handleDeleteUser}>❌</button>
+        <button onClick={handleUpdate}>✅</button>
       </div>
-      <button onClick={handleDeleteUser}>❌</button>
-      <button onClick={handleUpdate}>✅</button>
-    </>
+    </article>
   );
 };
 

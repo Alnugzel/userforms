@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
+import "../styles/formUsers.css";
 
 const FormUsers = ({
   createNewUser,
@@ -16,10 +17,11 @@ const FormUsers = ({
   const submit = (data) => {
     if (updateInfo) {
       //Update
-      updateUserById("/user", updateInfo.id, data);
+      updateUserById("/users", data.id, data);
+      setUpdateInfo();
     } else {
       //Crear
-      createNewUser("/users", data);
+      createNewUser("/users/", data);
     }
 
     reset({
@@ -50,11 +52,12 @@ const FormUsers = ({
         <input {...register("last_name")} id="last_name" type="text" />
       </div>
       <div>
-        <label htmlFor="birthdate">
-          <input {...register("birthday")} id="birthday" type="date" />
-        </label>
+        <label htmlFor="birthday">Birthday</label>
+        <input {...register("birthday")} id="birthday" type="date" />
       </div>
-      <button>{updateInfo ? "Update" : "Create"}</button>
+      <div>
+        <button>{updateInfo ? "Update" : "Create"}</button>
+      </div>
     </form>
   );
 };
