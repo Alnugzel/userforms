@@ -1,3 +1,7 @@
+body {
+  background-color: rgba(54, 140, 226, 0.473);
+}
+
 .header {
   display: flex;
   flex-direction: row;
@@ -14,4 +18,11 @@
 
 .header button:hover {
   background-color: aquamarine;
+}
+
+.content__user {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }

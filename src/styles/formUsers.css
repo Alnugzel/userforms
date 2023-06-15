@@ -1,14 +1,40 @@
+.content__form {
+  width: 100%;
+  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0004;
+  backdrop-filter: blur(2px);
+  z-index: 1000;
+}
+
+.hide-form {
+  display: none;
+}
+
 form {
-  max-width: 320px;
+  position: relative;
+  min-width: 320px;
   background-color: lightblue;
-  padding: 1em;
+  padding: 2em 1em;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 1em;
   margin: auto;
-  border-radius: 1em;
+  border-radius: 0.5em;
+}
+
+.handle__close {
+  position: absolute;
+  font-size: 1.4rem;
+  top: 0.5em;
+  right: 0.5em;
+  cursor: pointer;
 }
 
 form div {
@@ -26,6 +52,6 @@ form div input {
   border-bottom: 3px red solid;
 }
 
-form div input:hover {
+form div input:focus {
   border-bottom: 3px green solid;
 }

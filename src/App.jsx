@@ -10,6 +10,11 @@ function App() {
     useFetch(baseUrl);
 
   const [updateInfo, setUpdateInfo] = useState();
+  const [isCloseForm, setIsCloseForm] = useState(true);
+
+  const handleOpenCreateUser = () => {
+    setIsCloseForm(false);
+  };
 
   useEffect(() => {
     getAllusers("/users/");
@@ -21,19 +26,21 @@ function App() {
     <>
       <div className="header">
         <h1>Users</h1>
-        <button>
-          {" "}
+        <button onClick={handleOpenCreateUser}>
           <span>+</span> Create new user
         </button>
       </div>
 
-      <FormUsers
-        updateInfo={updateInfo}
-        createNewUser={createNewUser}
-        updateUserById={updateUserById}
-        setUpdateInfo={setUpdateInfo}
-      />
-      <div>
+      <div className={`content__form ${isCloseForm && "hide-form"}`}>
+        <FormUsers
+          updateInfo={updateInfo}
+          createNewUser={createNewUser}
+          updateUserById={updateUserById}
+          setUpdateInfo={setUpdateInfo}
+          setIsCloseForm={setIsCloseForm}
+        />
+      </div>
+      <div className="content__user">
         {users?.map((user) => (
           <Users
             key={user.id}
