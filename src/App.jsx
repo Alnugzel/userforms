@@ -3,6 +3,7 @@ import useFetch from "./hooks/useFetch";
 import "./App.css";
 import FormUsers from "./components/FormUsers";
 import Users from "./components/Users";
+import Messages from "./components/Messages";
 
 function App() {
   const baseUrl = "https://users-crud.academlo.tech/";
@@ -11,6 +12,7 @@ function App() {
 
   const [updateInfo, setUpdateInfo] = useState();
   const [isCloseForm, setIsCloseForm] = useState(true);
+  const [messages, setMessages] = useState(true);
 
   const handleOpenCreateUser = () => {
     setIsCloseForm(false);
@@ -40,6 +42,10 @@ function App() {
           setIsCloseForm={setIsCloseForm}
         />
       </div>
+
+      <div className={`content__message ${messages && "hide-messages"}`}>
+        <Messages />
+      </div>
       <div className="content__user">
         {users?.map((user) => (
           <Users
@@ -47,6 +53,7 @@ function App() {
             user={user}
             deleteUserById={deleteUserById}
             setUpdateInfo={setUpdateInfo}
+            setIsCloseForm={setIsCloseForm}
           />
         ))}
       </div>

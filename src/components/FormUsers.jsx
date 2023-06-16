@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import "../styles/formUsers.css";
+import "./styles/formUsers.css";
 
 const FormUsers = ({
   createNewUser,
@@ -36,14 +36,22 @@ const FormUsers = ({
   };
 
   const handleClose = () => {
+    reset({
+      email: "",
+      password: "",
+      last_name: "",
+      first_name: "",
+      birthday: "",
+    });
     setIsCloseForm(true);
+    setUpdateInfo();
   };
 
   return (
     <div className="content__form">
       <form onSubmit={handleSubmit(submit)}>
         <i className="handle__close bx bx-x" onClick={handleClose}></i>
-        <h2>Form Users</h2>
+        <h2>Users Form</h2>
         <div>
           <label htmlFor="email">Email</label>
           <input {...register("email")} id="email" type="text" />

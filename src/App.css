@@ -1,5 +1,6 @@
 body {
   background-color: rgba(54, 140, 226, 0.473);
+  font-family: "Trebuchet MS", sans-serif;
 }
 
 .header {
@@ -8,16 +9,25 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 1em;
+  font-size: 1rem;
+}
+
+.header span {
+  font-weight: bold;
 }
 
 .header button {
+  font-size: 1rem;
   border: none;
   border-radius: 0.5em;
   padding: 0.5em 1em;
+  transition: color 0.5s, background-color 1s, transform 1s;
 }
 
 .header button:hover {
-  background-color: aquamarine;
+  background-color: crimson;
+  color: white;
+  transform: scale(1.1);
 }
 
 .content__user {
@@ -25,4 +35,33 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+
+.content__message {
+  width: 100%;
+  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 1000;
+}
+
+.hide-messages {
+  display: none;
+}
+
+.content__user {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 700px) {
+  .content__user {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 }

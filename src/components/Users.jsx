@@ -1,13 +1,13 @@
-import React from "react";
-import "../styles/users.css";
+import "./styles/users.css";
 
-const Users = ({ user, deleteUserById, setUpdateInfo }) => {
+const Users = ({ user, deleteUserById, setUpdateInfo, setIsCloseForm }) => {
   const handleDeleteUser = () => {
     deleteUserById("/users", user.id);
   };
 
   const handleUpdate = () => {
     setUpdateInfo(user);
+    setIsCloseForm(false);
   };
 
   return (
@@ -24,8 +24,12 @@ const Users = ({ user, deleteUserById, setUpdateInfo }) => {
         </li>
       </ul>
       <div className="">
-        <button onClick={handleDeleteUser}>❌</button>
-        <button onClick={handleUpdate}>✅</button>
+        <button onClick={handleDeleteUser}>
+          <i class="bx bx-trash"></i>
+        </button>
+        <button onClick={handleUpdate}>
+          <i class="bx bx-edit-alt"></i>
+        </button>
       </div>
     </article>
   );
