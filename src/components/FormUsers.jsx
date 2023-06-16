@@ -54,23 +54,58 @@ const FormUsers = ({
         <h2>Users Form</h2>
         <div>
           <label htmlFor="email">Email</label>
-          <input {...register("email")} id="email" type="text" />
+          <input
+            {...register("email", {
+              required: true,
+            })}
+            required
+            id="email"
+            type="text"
+          />
         </div>
         <div>
           <label htmlFor="password">Password</label>
-          <input {...register("password")} id="password" type="password" />
+          <input
+            {...register("password", {
+              required: true,
+            })}
+            required
+            id="password"
+            type="password"
+          />
         </div>
         <div>
           <label htmlFor="first_name">First Name</label>
-          <input {...register("first_name")} id="first_name" type="text" />
+          <input
+            {...register("first_name", {
+              required: true,
+            })}
+            required
+            id="first_name"
+            type="text"
+          />
         </div>
         <div>
           <label htmlFor="last_name">Lastname</label>
-          <input {...register("last_name")} id="last_name" type="text" />
+          <input
+            {...register("last_name", {
+              required: true,
+            })}
+            required
+            id="last_name"
+            type="text"
+          />
         </div>
         <div>
           <label htmlFor="birthday">Birthday</label>
-          <input {...register("birthday")} id="birthday" type="date" />
+          <input
+            {...register("birthday", {
+              required: true,
+            })}
+            required
+            id="birthday"
+            type="date"
+          />
         </div>
         <div>
           <button>{updateInfo ? "Update" : "Create"}</button>

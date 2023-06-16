@@ -47,15 +47,19 @@ function App() {
         <Messages />
       </div>
       <div className="content__user">
-        {users?.map((user) => (
-          <Users
-            key={user.id}
-            user={user}
-            deleteUserById={deleteUserById}
-            setUpdateInfo={setUpdateInfo}
-            setIsCloseForm={setIsCloseForm}
-          />
-        ))}
+        {users?.length ? (
+          users?.map((user) => (
+            <Users
+              key={user.id}
+              user={user}
+              deleteUserById={deleteUserById}
+              setUpdateInfo={setUpdateInfo}
+              setIsCloseForm={setIsCloseForm}
+            />
+          ))
+        ) : (
+          <h2>At the moment there are no registered users</h2>
+        )}
       </div>
     </>
   );
