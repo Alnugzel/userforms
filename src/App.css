@@ -58,6 +58,10 @@ body {
   flex-direction: column;
 }
 
+.app__message {
+  text-align: center;
+}
+
 @media (min-width: 700px) {
   .content__user {
     display: flex;

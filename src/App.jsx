@@ -58,7 +58,9 @@ function App() {
             />
           ))
         ) : (
-          <h2>Sorry,there are currently no registered users ⛔</h2>
+          <h2 className="app__message">
+            Sorry,there are currently no registered users ⛔
+          </h2>
         )}
       </div>
     </>
