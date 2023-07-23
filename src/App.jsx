@@ -6,7 +6,7 @@ import Users from "./components/Users";
 import Messages from "./components/Messages";
 
 function App() {
-  const baseUrl = "https://users-crud.academlo.tech/";
+  const baseUrl = "https://users-crud-test-950k.onrender.com/api/v1/";
   const [users, getAllusers, createNewUser, deleteUserById, updateUserById] =
     useFetch(baseUrl);
 
